@@ -1,0 +1,74 @@
+# Font
+font-family = Monaco
+font-size = 15
+font-style-bold = true
+font-style-italic = true
+adjust-cell-width = 0
+adjust-cell-height = 0
+
+# Cursor
+cursor-style = block
+cursor-style-blink = false
+shell-integration-features = no-cursor
+
+# Window
+window-padding-x = 2
+window-padding-y = 2
+background-opacity = 0.955
+background-blur = true
+window-width = 80
+window-height = 25
+
+# Scrollback
+scrollback-limit = 1000
+
+# Terminal
+term = xterm-256color
+
+# Colors — migrated from iTerm2 profile
+background = #e3ddca
+foreground = #101010
+cursor-color = #000000
+cursor-text = #ffffff
+selection-background = #b3d7ff
+selection-foreground = #000000
+
+# ANSI normal colors (0-7)
+palette = 0=#14191e
+palette = 1=#b43c29
+palette = 2=#00c200
+palette = 3=#c7c400
+palette = 4=#2743c7
+palette = 5=#bf3fbd
+palette = 6=#2aa198
+palette = 7=#c7c7c7
+
+# ANSI bright colors (8-15)
+palette = 8=#676767
+palette = 9=#dc7974
+palette = 10=#57e690
+palette = 11=#ece100
+palette = 12=#a6aaf1
+palette = 13=#e07de0
+palette = 14=#69d2e7
+palette = 15=#feffff
+
+# Key bindings — migrated from iTerm2
+# Cmd+Backspace → clear line (Ctrl-U)
+keybind = super+backspace=text:\x15
+# Option+Backspace → delete word backward (ESC + DEL)
+keybind = alt+backspace=text:\x1b\x7f
+# Option+Left → word left (ESC + b)
+keybind = alt+left=text:\x1bb
+# Option+Right → word right (ESC + f)
+keybind = alt+right=text:\x1bf
+# Cmd+Left → beginning of line (Ctrl-A)
+keybind = super+left=text:\x01
+# Cmd+Right → end of line (Ctrl-E)
+keybind = super+right=text:\x05
+# Forward delete key → Ctrl-D
+keybind = delete=text:\x04
+# Option+Forward delete → delete word forward (ESC + d)
+keybind = alt+delete=text:\x1bd
+keybind = global:ctrl+grave_accent=toggle_quick_terminal
+
