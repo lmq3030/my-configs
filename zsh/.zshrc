@@ -1,3 +1,10 @@
+# Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
+# Initialization code that may require console input (password prompts, [y/n]
+# confirmations, etc.) must go above this block; everything else may go below.
+if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
+  source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
+fi
+
 # If you come from bash you might have to change your $PATH.
 # export PATH=$HOME/bin:$HOME/.local/bin:/usr/local/bin:$PATH
 
@@ -15,7 +22,7 @@ export ZSH="$HOME/.oh-my-zsh"
 # load a random theme each time Oh My Zsh is loaded, in which case,
 # to know which specific one was loaded, run: echo $RANDOM_THEME
 # See https://github.com/ohmyzsh/ohmyzsh/wiki/Themes
-ZSH_THEME="robbyrussell"
+ZSH_THEME="powerlevel10k/powerlevel10k"
 
 # Set list of themes to pick from when loading at random
 # Setting this variable when ZSH_THEME=random will cause zsh to load
@@ -150,7 +157,7 @@ export PATH="/tmp/google-cloud-sdk/bin:$PATH"
 # # Trust-AI CLI Configuration
 # export ANTHROPIC_AUTH_TOKEN=<YOUR_ANTHROPIC_TOKEN>
 # export GRAB_GITLAB_ACCESS_TOKEN=<YOUR_GITLAB_TOKEN>
-# export ATLASSIAN_JIRA_TOKEN=<YOUR_ATLASSIAN_TOKEN>
+# export ATLASSIAN_JIRA_TOKEN=muqi.li@grabtaxi.com:<YOUR_ATLASSIAN_TOKEN>
 # export ANTHROPIC_BEDROCK_BASE_URL=https://public-api.grabgpt.managed.catwalk-k8s.stg-myteksi.com/aws/v1
 # export ANTHROPIC_MODEL=global.anthropic.claude-sonnet-4-5-20250929-v1:0
 # export ANTHROPIC_SMALL_FAST_MODEL=global.anthropic.claude-haiku-4-5-20251001-v1:0
@@ -171,3 +178,6 @@ if [ -f '/Users/muqi.li/Downloads/google-cloud-sdk/path.zsh.inc' ]; then . '/Use
 
 # The next line enables shell command completion for gcloud.
 if [ -f '/Users/muqi.li/Downloads/google-cloud-sdk/completion.zsh.inc' ]; then . '/Users/muqi.li/Downloads/google-cloud-sdk/completion.zsh.inc'; fi
+
+# To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
+[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
