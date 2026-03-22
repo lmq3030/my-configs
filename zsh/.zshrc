@@ -52,7 +52,7 @@ ZSH_THEME="powerlevel10k/powerlevel10k"
 # DISABLE_LS_COLORS="true"
 
 # Uncomment the following line to disable auto-setting terminal title.
-# DISABLE_AUTO_TITLE="true"
+DISABLE_AUTO_TITLE="true"
 
 # Uncomment the following line to enable command auto-correction.
 # ENABLE_CORRECTION="true"
@@ -178,6 +178,11 @@ if [ -f '/Users/muqi.li/Downloads/google-cloud-sdk/path.zsh.inc' ]; then . '/Use
 
 # The next line enables shell command completion for gcloud.
 if [ -f '/Users/muqi.li/Downloads/google-cloud-sdk/completion.zsh.inc' ]; then . '/Users/muqi.li/Downloads/google-cloud-sdk/completion.zsh.inc'; fi
+
+# Terminal title: show path + running command
+export CLAUDE_CODE_DISABLE_TERMINAL_TITLE=1
+precmd() { print -Pn "\e]2;zsh — %~\a" }
+preexec() { print -Pn "\e]2;$1 — %~\a" }
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh

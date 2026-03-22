@@ -12,18 +12,26 @@ cursor-style-blink = false
 shell-integration-features = no-cursor
 
 # Window
-window-padding-x = 2
-window-padding-y = 2
+window-padding-x = 6
+window-padding-y = 6
 background-opacity = 0.955
 background-blur = true
 window-width = 80
 window-height = 25
+window-padding-color = extend
+
+# Splits
+split-divider-color = #888888
+unfocused-split-opacity = 1
 
 # Scrollback
-scrollback-limit = 1000
+# scrollback-limit defaults to 10000
 
 # Clipboard
 copy-on-select = clipboard
+
+# Close confirmation
+confirm-close-surface = true
 
 # Terminal
 term = xterm-256color
@@ -74,4 +82,7 @@ keybind = delete=text:\x04
 # Option+Forward delete → delete word forward (ESC + d)
 keybind = alt+delete=text:\x1bd
 keybind = global:ctrl+grave_accent=toggle_quick_terminal
+# Cmd+Option+Left/Right → switch tabs
+keybind = super+alt+left=previous_tab
+keybind = super+alt+right=next_tab
 

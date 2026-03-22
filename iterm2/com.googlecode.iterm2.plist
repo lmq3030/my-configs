@@ -352,9 +352,9 @@
 	<key>NSWindow Frame iTerm Window 0</key>
 	<string>864 572 667 512 0 0 1728 1084 </string>
 	<key>NSWindow Frame iTerm Window 1</key>
-	<string>0 0 859 1084 0 0 1728 1084 </string>
+	<string>0 572 667 512 0 0 1728 1084 </string>
 	<key>NSWindow Frame iTerm Window 2</key>
-	<string>864 0 864 1084 0 0 1728 1084 </string>
+	<string>864 572 667 512 0 0 1728 1084 </string>
 	<key>NSWindow Frame iTerm Window 3</key>
 	<string>864 0 864 1084 0 0 1728 1084 </string>
 	<key>NSWindow Frame iTerm Window 4</key>
@@ -1572,7 +1572,7 @@
 	<key>NoSyncLastSystemPythonVersionRequirement</key>
 	<string>1.17</string>
 	<key>NoSyncLaunchExperienceControllerRunCount</key>
-	<integer>83</integer>
+	<integer>89</integer>
 	<key>NoSyncLoggingStyle</key>
 	<integer>0</integer>
 	<key>NoSyncNextAnnoyanceTime</key>
@@ -2477,7 +2477,7 @@
 		<key>0</key>
 		<string>{864, 1084}</string>
 		<key>1</key>
-		<string>{-0, 1084}</string>
+		<string>{0, 1084}</string>
 		<key>2</key>
 		<string>{864, 1084}</string>
 		<key>3</key>
@@ -2545,7 +2545,7 @@
 	<key>SUHasLaunchedBefore</key>
 	<true/>
 	<key>SULastCheckTime</key>
-	<date>2026-03-20T15:06:59Z</date>
+	<date>2026-03-21T15:07:00Z</date>
 	<key>SUSendProfileInfo</key>
 	<false/>
 	<key>SUUpdateGroupIdentifier</key>
