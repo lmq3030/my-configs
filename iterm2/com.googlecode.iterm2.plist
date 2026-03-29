@@ -339,6 +339,8 @@
 	<string>614 424 808 510 0 0 1728 1079 </string>
 	<key>NSWindow Frame NSColorPanel</key>
 	<string>0 43 250 316 0 0 1728 1084 </string>
+	<key>NSWindow Frame NSFontPanel</key>
+	<string>1058 272 543 281 0 0 1728 1084 </string>
 	<key>NSWindow Frame NSNavPanelAutosaveName</key>
 	<string>779 482 430 167 0 0 1728 1079 </string>
 	<key>NSWindow Frame ProfilesPanel</key>
@@ -350,15 +352,15 @@
 	<key>NSWindow Frame UKCrashReporter</key>
 	<string>347 142 592 594 0 0 1728 1084 </string>
 	<key>NSWindow Frame iTerm Window 0</key>
-	<string>864 572 667 512 0 0 1728 1084 </string>
-	<key>NSWindow Frame iTerm Window 1</key>
-	<string>0 572 667 512 0 0 1728 1084 </string>
-	<key>NSWindow Frame iTerm Window 2</key>
-	<string>864 572 667 512 0 0 1728 1084 </string>
-	<key>NSWindow Frame iTerm Window 3</key>
 	<string>864 0 864 1084 0 0 1728 1084 </string>
+	<key>NSWindow Frame iTerm Window 1</key>
+	<string>864 0 864 1084 0 0 1728 1084 </string>
+	<key>NSWindow Frame iTerm Window 2</key>
+	<string>0 551 650 533 0 0 1728 1084 </string>
+	<key>NSWindow Frame iTerm Window 3</key>
+	<string>0 551 650 533 0 0 1728 1084 </string>
 	<key>NSWindow Frame iTerm Window 4</key>
-	<string>0 572 667 512 0 0 1728 1084 </string>
+	<string>864 551 650 533 0 0 1728 1084 </string>
 	<key>NSWindow Frame iTerm Window 5</key>
 	<string>864 572 667 512 0 0 1728 1084 </string>
 	<key>NSWindow Frame iTerm Window 6</key>
@@ -1489,10 +1491,142 @@
 			<false/>
 			<key>Shortcut</key>
 			<string></string>
+			<key>Show Status Bar</key>
+			<true/>
 			<key>Silence Bell</key>
 			<false/>
 			<key>Smart Cursor Color (Light)</key>
 			<false/>
+			<key>Status Bar Layout</key>
+			<dict>
+				<key>advanced configuration</key>
+				<dict>
+					<key>algorithm</key>
+					<integer>0</integer>
+					<key>auto-rainbow style</key>
+					<integer>0</integer>
+					<key>font</key>
+					<string>OPPOSans40 14</string>
+					<key>remove empty components</key>
+					<false/>
+				</dict>
+				<key>components</key>
+				<array>
+					<dict>
+						<key>class</key>
+						<string>iTermStatusBarWorkingDirectoryComponent</string>
+						<key>configuration</key>
+						<dict>
+							<key>knobs</key>
+							<dict>
+								<key>base: compression resistance</key>
+								<integer>1</integer>
+								<key>base: priority</key>
+								<real>5</real>
+								<key>maxwidth</key>
+								<real>+infinity</real>
+								<key>minwidth</key>
+								<integer>0</integer>
+								<key>path</key>
+								<string>path</string>
+								<key>shared text color</key>
+								<dict>
+									<key>Alpha Component</key>
+									<real>1</real>
+									<key>Blue Component</key>
+									<real>0.43551152944564819</real>
+									<key>Color Space</key>
+									<string>P3</string>
+									<key>Green Component</key>
+									<real>0.49410122632980347</real>
+									<key>Red Component</key>
+									<real>0.31301426887512207</real>
+								</dict>
+							</dict>
+							<key>layout advanced configuration dictionary value</key>
+							<dict>
+								<key>algorithm</key>
+								<integer>0</integer>
+								<key>auto-rainbow style</key>
+								<integer>0</integer>
+								<key>remove empty components</key>
+								<false/>
+							</dict>
+						</dict>
+					</dict>
+					<dict>
+						<key>class</key>
+						<string>iTermStatusBarGitComponent</string>
+						<key>configuration</key>
+						<dict>
+							<key>knobs</key>
+							<dict>
+								<key>base: compression resistance</key>
+								<integer>1</integer>
+								<key>base: priority</key>
+								<real>5</real>
+								<key>iTermStatusBarGitComponentPollingIntervalKey</key>
+								<real>2</real>
+								<key>maxwidth</key>
+								<real>+infinity</real>
+								<key>minwidth</key>
+								<integer>0</integer>
+								<key>shared text color</key>
+								<dict>
+									<key>Alpha Component</key>
+									<real>1</real>
+									<key>Blue Component</key>
+									<real>0.379524827003479</real>
+									<key>Color Space</key>
+									<string>P3</string>
+									<key>Green Component</key>
+									<real>0.26313775777816772</real>
+									<key>Red Component</key>
+									<real>0.4673653244972229</real>
+								</dict>
+							</dict>
+							<key>layout advanced configuration dictionary value</key>
+							<dict>
+								<key>algorithm</key>
+								<integer>0</integer>
+								<key>auto-rainbow style</key>
+								<integer>0</integer>
+								<key>remove empty components</key>
+								<false/>
+							</dict>
+						</dict>
+					</dict>
+					<dict>
+						<key>class</key>
+						<string>iTermStatusBarJobComponent</string>
+						<key>configuration</key>
+						<dict>
+							<key>knobs</key>
+							<dict>
+								<key>base: compression resistance</key>
+								<integer>1</integer>
+								<key>base: priority</key>
+								<real>5</real>
+								<key>maxwidth</key>
+								<real>+infinity</real>
+								<key>minwidth</key>
+								<integer>0</integer>
+							</dict>
+							<key>layout advanced configuration dictionary value</key>
+							<dict>
+								<key>algorithm</key>
+								<integer>0</integer>
+								<key>auto-rainbow style</key>
+								<integer>0</integer>
+								<key>font</key>
+								<string>OPPOSans40 14</string>
+								<key>remove empty components</key>
+								<false/>
+							</dict>
+						</dict>
+					</dict>
+				</array>
+			</dict>
 			<key>Sync Title</key>
 			<false/>
 			<key>Tags</key>
@@ -1568,11 +1702,11 @@
 	<key>NoSyncInstallationId</key>
 	<string>D8926A59-C24A-4B89-88C2-4D26F1E1B811</string>
 	<key>NoSyncLastOSVersion</key>
-	<string>Version 26.3.1 (Build 25D2128)</string>
+	<string>Version 26.4 (Build 25E246)</string>
 	<key>NoSyncLastSystemPythonVersionRequirement</key>
 	<string>1.17</string>
 	<key>NoSyncLaunchExperienceControllerRunCount</key>
-	<integer>89</integer>
+	<integer>91</integer>
 	<key>NoSyncLoggingStyle</key>
 	<integer>0</integer>
 	<key>NoSyncNextAnnoyanceTime</key>
@@ -2477,13 +2611,13 @@
 		<key>0</key>
 		<string>{864, 1084}</string>
 		<key>1</key>
-		<string>{0, 1084}</string>
+		<string>{864, 1084}</string>
 		<key>2</key>
-		<string>{864, 1084}</string>
-		<key>3</key>
-		<string>{864, 1084}</string>
-		<key>4</key>
 		<string>{0, 1084}</string>
+		<key>3</key>
+		<string>{0, 1084}</string>
+		<key>4</key>
+		<string>{864, 1084}</string>
 		<key>5</key>
 		<string>{864, 1084}</string>
 		<key>6</key>
@@ -2545,7 +2679,7 @@
 	<key>SUHasLaunchedBefore</key>
 	<true/>
 	<key>SULastCheckTime</key>
-	<date>2026-03-21T15:07:00Z</date>
+	<date>2026-03-28T22:57:40Z</date>
 	<key>SUSendProfileInfo</key>
 	<false/>
 	<key>SUUpdateGroupIdentifier</key>

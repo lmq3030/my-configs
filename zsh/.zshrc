@@ -139,6 +139,8 @@ alias c="code"
 alias tp='open -a "Typora"'
 alias typora='open -a "Typora"'
 eval "$(pyenv init -)"
+alias ccd="claude --dangerously-skip-permissions"
+ccc() { mkdir -p ~/Development/temp/"$1" && cd ~/Development/temp/"$1" && claude --dangerously-skip-permissions; }
 
 alias ls="eza"
 alias tree="eza --tree"
