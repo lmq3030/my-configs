@@ -9,3 +9,6 @@ export PATH="$GOBIN:$PATH"
 export PATH="/opt/homebrew/opt/go@1.24/bin:$PATH"
 
 source ~/.grab_profile
+
+# Added by Obsidian
+export PATH="$PATH:/Applications/Obsidian.app/Contents/MacOS"

@@ -140,7 +140,7 @@ alias tp='open -a "Typora"'
 alias typora='open -a "Typora"'
 eval "$(pyenv init -)"
 alias ccd="claude --dangerously-skip-permissions"
-ccc() { mkdir -p ~/Development/temp/"$1" && cd ~/Development/temp/"$1" && claude --dangerously-skip-permissions; }
+ccc() { local tag="${*:- }"; tag="${tag// /-}"; local dir=~/Development/temp/"$(date +%Y%m%d-%H%M%S)-${tag}"; mkdir -p "$dir" && cd "$dir" && claude --dangerously-skip-permissions; }
 
 alias ls="eza"
 alias tree="eza --tree"
