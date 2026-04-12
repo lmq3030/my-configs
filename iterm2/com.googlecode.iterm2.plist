@@ -352,9 +352,9 @@
 	<key>NSWindow Frame UKCrashReporter</key>
 	<string>347 142 592 594 0 0 1728 1084 </string>
 	<key>NSWindow Frame iTerm Window 0</key>
-	<string>0 617 667 533 0 0 1920 1250 </string>
+	<string>813 397 578 533 0 0 1728 1084 </string>
 	<key>NSWindow Frame iTerm Window 1</key>
-	<string>960 0 960 1050 0 0 1920 1050 </string>
+	<string>813 397 643 533 0 0 1728 1084 </string>
 	<key>NSWindow Frame iTerm Window 2</key>
 	<string>0 717 715 533 0 0 1920 1250 </string>
 	<key>NSWindow Frame iTerm Window 3</key>
@@ -1702,11 +1702,11 @@
 	<key>NoSyncInstallationId</key>
 	<string>D8926A59-C24A-4B89-88C2-4D26F1E1B811</string>
 	<key>NoSyncLastOSVersion</key>
-	<string>Version 26.4 (Build 25E246)</string>
+	<string>Version 26.4.1 (Build 25E253)</string>
 	<key>NoSyncLastSystemPythonVersionRequirement</key>
 	<string>1.17</string>
 	<key>NoSyncLaunchExperienceControllerRunCount</key>
-	<integer>95</integer>
+	<integer>98</integer>
 	<key>NoSyncLoggingStyle</key>
 	<integer>0</integer>
 	<key>NoSyncNextAnnoyanceTime</key>
@@ -2609,9 +2609,9 @@
 	<key>NoSyncSavedWindowPositions</key>
 	<dict>
 		<key>0</key>
-		<string>{0, 1150}</string>
+		<string>{813, 930}</string>
 		<key>1</key>
-		<string>{960, 1050}</string>
+		<string>{813, 930}</string>
 		<key>2</key>
 		<string>{0, 1250}</string>
 		<key>3</key>
@@ -2679,7 +2679,7 @@
 	<key>SUHasLaunchedBefore</key>
 	<true/>
 	<key>SULastCheckTime</key>
-	<date>2026-04-05T22:57:48Z</date>
+	<date>2026-04-11T22:57:51Z</date>
 	<key>SUSendProfileInfo</key>
 	<false/>
 	<key>SUUpdateGroupIdentifier</key>
