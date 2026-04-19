@@ -338,7 +338,7 @@
 	<key>NSWindow Frame ChatWindow</key>
 	<string>614 424 808 510 0 0 1728 1079 </string>
 	<key>NSWindow Frame NSColorPanel</key>
-	<string>0 43 250 316 0 0 1728 1084 </string>
+	<string>0 43 250 316 0 0 1920 1250 </string>
 	<key>NSWindow Frame NSFontPanel</key>
 	<string>1058 272 543 281 0 0 1728 1084 </string>
 	<key>NSWindow Frame NSNavPanelAutosaveName</key>
@@ -352,9 +352,9 @@
 	<key>NSWindow Frame UKCrashReporter</key>
 	<string>347 142 592 594 0 0 1728 1084 </string>
 	<key>NSWindow Frame iTerm Window 0</key>
-	<string>864 551 667 533 0 0 1728 1084 </string>
+	<string>960 0 1035 1250 0 0 1920 1250 </string>
 	<key>NSWindow Frame iTerm Window 1</key>
-	<string>0 0 858 1084 0 0 1728 1084 </string>
+	<string>0 0 960 1250 0 0 1920 1250 </string>
 	<key>NSWindow Frame iTerm Window 2</key>
 	<string>0 551 650 533 0 0 1728 1084 </string>
 	<key>NSWindow Frame iTerm Window 3</key>
@@ -1706,7 +1706,7 @@
 	<key>NoSyncLastSystemPythonVersionRequirement</key>
 	<string>1.17</string>
 	<key>NoSyncLaunchExperienceControllerRunCount</key>
-	<integer>98</integer>
+	<integer>99</integer>
 	<key>NoSyncLoggingStyle</key>
 	<integer>0</integer>
 	<key>NoSyncNextAnnoyanceTime</key>
@@ -2609,9 +2609,9 @@
 	<key>NoSyncSavedWindowPositions</key>
 	<dict>
 		<key>0</key>
-		<string>{864, 1084}</string>
+		<string>{960, 1250}</string>
 		<key>1</key>
-		<string>{-0, 1084}</string>
+		<string>{-0, 1250}</string>
 		<key>2</key>
 		<string>{0, 1084}</string>
 		<key>3</key>
