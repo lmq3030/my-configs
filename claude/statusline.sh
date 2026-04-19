@@ -19,7 +19,8 @@ jq_full='[
   (.rate_limits.five_hour.used_percentage // null | if . then (. | round | tostring) else "null" end),
   (.rate_limits.five_hour.resets_at // "" | tostring),
   (.rate_limits.seven_day.used_percentage // null | if . then (. | round | tostring) else "null" end),
-  (.rate_limits.seven_day.resets_at // "" | tostring)
+  (.rate_limits.seven_day.resets_at // "" | tostring),
+  (.workspace.current_dir // .cwd // "" | tostring)
 ] | @tsv'
 
 jq_rl='[
@@ -43,7 +44,7 @@ cache_file_mtime() {
 parsed=""
 [ -n "$input" ] && parsed=$(printf '%s' "$input" | jq -r "$jq_full" 2>/dev/null)
 
-IFS="$tab" read -r model_name used_tokens window_size live_five_pct live_five_reset live_seven_pct live_seven_reset <<EOF
+IFS="$tab" read -r model_name used_tokens window_size live_five_pct live_five_reset live_seven_pct live_seven_reset cwd <<EOF
 $parsed
 EOF
 
@@ -106,9 +107,28 @@ format_reset() {
   fi
 }
 
+# Thinking level (read from user settings; /think persists here)
+SETTINGS_FILE="$HOME/.claude/settings.json"
+think_label=""
+if [ -f "$SETTINGS_FILE" ]; then
+  thinking_enabled=$(jq -r '.alwaysThinkingEnabled // true' "$SETTINGS_FILE" 2>/dev/null)
+  effort=$(jq -r '.effortLevel // ""' "$SETTINGS_FILE" 2>/dev/null)
+  if [ "$thinking_enabled" = "false" ]; then
+    think_label="off"
+  elif [ -n "$effort" ]; then
+    think_label="$effort"
+  else
+    think_label="on"
+  fi
+fi
+
 # Model name
 if [ -n "$model_name" ]; then
-  model_part="${DIM}Model${RESET} ${BLUE}${model_name}${RESET}"
+  if [ -n "$think_label" ]; then
+    model_part="${DIM}Model${RESET} ${BLUE}${model_name}${RESET} ${DIM}(${think_label})${RESET}"
+  else
+    model_part="${DIM}Model${RESET} ${BLUE}${model_name}${RESET}"
+  fi
 else
   model_part=""
 fi
@@ -125,7 +145,7 @@ elif [ "$ctx_pct" -ge 70 ] 2>/dev/null; then
 else
   ctx_color="$GREEN"
 fi
-context_part="${DIM}Context${RESET} ${ctx_color}${ctx_pct}%${RESET}"
+context_part="${DIM}ctx${RESET} ${ctx_color}${ctx_pct}%${RESET}"
 
 # Usage color
 usage_color() {
@@ -162,8 +182,19 @@ else
   seven_part="${DIM}7d: --${RESET}"
 fi
 
-if [ -n "$model_part" ]; then
+# Current directory (abbreviate $HOME as ~)
+dir_part=""
+if [ -n "$cwd" ]; then
+  dir_display="${cwd##*/}"
+  dir_part="${DIM}Dir${RESET} ${MAGENTA}${dir_display}${RESET}"
+fi
+
+if [ -n "$model_part" ] && [ -n "$dir_part" ]; then
+  printf "%b | %b | %b | %b | %b\n" "$model_part" "$dir_part" "$context_part" "$five_part" "$seven_part"
+elif [ -n "$model_part" ]; then
   printf "%b | %b | %b | %b\n" "$model_part" "$context_part" "$five_part" "$seven_part"
+elif [ -n "$dir_part" ]; then
+  printf "%b | %b | %b | %b\n" "$dir_part" "$context_part" "$five_part" "$seven_part"
 else
   printf "%b | %b | %b\n" "$context_part" "$five_part" "$seven_part"
 fi
