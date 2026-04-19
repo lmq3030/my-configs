@@ -352,13 +352,13 @@
 	<key>NSWindow Frame UKCrashReporter</key>
 	<string>347 142 592 594 0 0 1728 1084 </string>
 	<key>NSWindow Frame iTerm Window 0</key>
-	<string>813 397 578 533 0 0 1728 1084 </string>
+	<string>864 551 667 533 0 0 1728 1084 </string>
 	<key>NSWindow Frame iTerm Window 1</key>
-	<string>813 397 643 533 0 0 1728 1084 </string>
+	<string>0 0 858 1084 0 0 1728 1084 </string>
 	<key>NSWindow Frame iTerm Window 2</key>
-	<string>0 717 715 533 0 0 1920 1250 </string>
-	<key>NSWindow Frame iTerm Window 3</key>
 	<string>0 551 650 533 0 0 1728 1084 </string>
+	<key>NSWindow Frame iTerm Window 3</key>
+	<string>0 551 667 533 0 0 1920 1250 </string>
 	<key>NSWindow Frame iTerm Window 4</key>
 	<string>864 551 650 533 0 0 1728 1084 </string>
 	<key>NSWindow Frame iTerm Window 5</key>
@@ -1691,9 +1691,9 @@
 	<key>NoSyncFrame_SharedPreferences</key>
 	<dict>
 		<key>screenFrame</key>
-		<string>{{0, 0}, {1728, 1117}}</string>
+		<string>{{0, 0}, {1920, 1280}}</string>
 		<key>topLeft</key>
-		<string>{402, 798}</string>
+		<string>{498, 883}</string>
 	</dict>
 	<key>NoSyncHaveUsedCopyMode</key>
 	<true/>
@@ -2609,11 +2609,11 @@
 	<key>NoSyncSavedWindowPositions</key>
 	<dict>
 		<key>0</key>
-		<string>{813, 930}</string>
+		<string>{864, 1084}</string>
 		<key>1</key>
-		<string>{813, 930}</string>
+		<string>{-0, 1084}</string>
 		<key>2</key>
-		<string>{0, 1250}</string>
+		<string>{0, 1084}</string>
 		<key>3</key>
 		<string>{0, 1084}</string>
 		<key>4</key>
@@ -2679,7 +2679,7 @@
 	<key>SUHasLaunchedBefore</key>
 	<true/>
 	<key>SULastCheckTime</key>
-	<date>2026-04-11T22:57:51Z</date>
+	<date>2026-04-18T23:32:09Z</date>
 	<key>SUSendProfileInfo</key>
 	<false/>
 	<key>SUUpdateGroupIdentifier</key>

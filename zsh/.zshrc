@@ -139,8 +139,9 @@ alias c="code"
 alias tp='open -a "Typora"'
 alias typora='open -a "Typora"'
 eval "$(pyenv init -)"
-alias ccd="claude --dangerously-skip-permissions"
-ccc() { local tag="${*:- }"; tag="${tag// /-}"; local dir=~/Development/temp/"$(date +%Y%m%d-%H%M%S)-${tag}"; mkdir -p "$dir" && cd "$dir" && claude --dangerously-skip-permissions; }
+alias ccd="CLAUDE_CODE_AUTO_COMPACT_WINDOW=400000 claude --dangerously-skip-permissions"
+ccdr() { CLAUDE_CODE_AUTO_COMPACT_WINDOW=400000 claude --dangerously-skip-permissions --resume "$1"; }
+ccc() { local tag="${*:- }"; tag="${tag// /-}"; local dir=~/Development/temp/"$(date +%Y%m%d-%H%M%S)-${tag}"; mkdir -p "$dir" && cd "$dir" && CLAUDE_CODE_AUTO_COMPACT_WINDOW=400000 claude --dangerously-skip-permissions; }
 
 alias ls="eza"
 alias tree="eza --tree"
@@ -155,13 +156,13 @@ export PATH="$(brew --prefix)/opt/python@3.13/libexec/bin:$PATH"
 source ~/.grabrc
 export PATH="/Users/muqi.li/.node/bin:$PATH"
 export PATH="/tmp/google-cloud-sdk/bin:$PATH"
+export ATLASSIAN_JIRA_TOKEN=muqi.li@grabtaxi.com:<YOUR_ATLASSIAN_TOKEN>
 
-# # Trust-AI CLI Configuration
-# export ANTHROPIC_AUTH_TOKEN=<YOUR_ANTHROPIC_TOKEN>
-# export GRAB_GITLAB_ACCESS_TOKEN=<YOUR_GITLAB_TOKEN>
-# export ATLASSIAN_JIRA_TOKEN=muqi.li@grabtaxi.com:<YOUR_ATLASSIAN_TOKEN>
+# Trust-AI CLI Configuration
+# export ANTHROPIC_AUTH_TOKEN=$GRAB_GPT
+# export GRAB_GITLAB_ACCESS_TOKEN=$GITLAB_TOKEN
 # export ANTHROPIC_BEDROCK_BASE_URL=https://public-api.grabgpt.managed.catwalk-k8s.stg-myteksi.com/aws/v1
-# export ANTHROPIC_MODEL=global.anthropic.claude-sonnet-4-5-20250929-v1:0
+# export ANTHROPIC_MODEL=global.anthropic.claude-opus-4-6-v1
 # export ANTHROPIC_SMALL_FAST_MODEL=global.anthropic.claude-haiku-4-5-20251001-v1:0
 # export CLAUDE_CODE_SKIP_BEDROCK_AUTH=1
 # export CLAUDE_CODE_USE_BEDROCK=1
@@ -171,8 +172,8 @@ export PATH="/tmp/google-cloud-sdk/bin:$PATH"
 # export CLAUDE_CODE_DISABLE_TERMINAL_TITLE=1
 # export CLAUDE_CODE_REMOTE=true
 # export DISABLE_NON_ESSENTIAL_MODEL_CALLS=1
-# export ANTHROPIC_DEFAULT_SONNET_MODEL=global.anthropic.claude-sonnet-4-5-20250929-v1:0
-# export ANTHROPIC_DEFAULT_OPUS_MODEL=global.anthropic.claude-opus-4-5-20251101-v1:0
+# export ANTHROPIC_DEFAULT_SONNET_MODEL=global.anthropic.claude-sonnet-4-6
+# export ANTHROPIC_DEFAULT_OPUS_MODEL=global.anthropic.claude-opus-4-6-v1
 # export ANTHROPIC_DEFAULT_HAIKU_MODEL=global.anthropic.claude-haiku-4-5-20251001-v1:0
 
 # The next line updates PATH for the Google Cloud SDK.
