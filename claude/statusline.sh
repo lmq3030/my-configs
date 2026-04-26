@@ -20,7 +20,8 @@ jq_full='[
   (.rate_limits.five_hour.resets_at // "" | tostring),
   (.rate_limits.seven_day.used_percentage // null | if . then (. | round | tostring) else "null" end),
   (.rate_limits.seven_day.resets_at // "" | tostring),
-  (.workspace.current_dir // .cwd // "" | tostring)
+  (.workspace.current_dir // .cwd // "" | tostring),
+  (.session_id // "" | tostring)
 ] | @tsv'
 
 jq_rl='[
@@ -44,7 +45,7 @@ cache_file_mtime() {
 parsed=""
 [ -n "$input" ] && parsed=$(printf '%s' "$input" | jq -r "$jq_full" 2>/dev/null)
 
-IFS="$tab" read -r model_name used_tokens window_size live_five_pct live_five_reset live_seven_pct live_seven_reset cwd <<EOF
+IFS="$tab" read -r model_name used_tokens window_size live_five_pct live_five_reset live_seven_pct live_seven_reset cwd session_id <<EOF
 $parsed
 EOF
 
@@ -125,9 +126,9 @@ fi
 # Model name
 if [ -n "$model_name" ]; then
   if [ -n "$think_label" ]; then
-    model_part="${DIM}Model${RESET} ${BLUE}${model_name}${RESET} ${DIM}(${think_label})${RESET}"
+    model_part="${BLUE}${model_name}${RESET} ${DIM}(${think_label})${RESET}"
   else
-    model_part="${DIM}Model${RESET} ${BLUE}${model_name}${RESET}"
+    model_part="${BLUE}${model_name}${RESET}"
   fi
 else
   model_part=""
@@ -156,30 +157,39 @@ usage_color() {
   fi
 }
 
-# 5h part
-if [ "$five_pct" != "null" ] && [ -n "$five_pct" ]; then
-  color=$(usage_color "$five_pct")
-  reset_str=$(format_reset "$five_reset")
-  if [ -n "$reset_str" ]; then
-    five_part="${DIM}5h:${RESET} ${color}${five_pct}%${RESET} ${DIM}(${reset_str})${RESET}"
-  else
-    five_part="${DIM}5h:${RESET} ${color}${five_pct}%${RESET}"
+# Combined rate-limit part: "88%(3h25m):35%(3d22h)" — first=5h, second=7d.
+fmt_rl_segment() {
+  local pct="$1" reset_ts="$2"
+  if [ "$pct" = "null" ] || [ -z "$pct" ]; then
+    printf "%b--%b" "$DIM" "$RESET"
+    return
   fi
-else
-  five_part="${DIM}5h: --${RESET}"
-fi
+  local color reset_str
+  color=$(usage_color "$pct")
+  reset_str=$(format_reset "$reset_ts")
+  if [ -n "$reset_str" ]; then
+    printf "%b%s%%%b%b(%s)%b" "$color" "$pct" "$RESET" "$DIM" "$reset_str" "$RESET"
+  else
+    printf "%b%s%%%b" "$color" "$pct" "$RESET"
+  fi
+}
+five_seg=$(fmt_rl_segment "$five_pct" "$five_reset")
+seven_seg=$(fmt_rl_segment "$seven_pct" "$seven_reset")
+five_part="${five_seg}${DIM}:${RESET}${seven_seg}"
 
-# 7d part
-if [ "$seven_pct" != "null" ] && [ -n "$seven_pct" ]; then
-  color=$(usage_color "$seven_pct")
-  reset_str=$(format_reset "$seven_reset")
-  if [ -n "$reset_str" ]; then
-    seven_part="${DIM}7d:${RESET} ${color}${seven_pct}%${RESET} ${DIM}(${reset_str})${RESET}"
-  else
-    seven_part="${DIM}7d:${RESET} ${color}${seven_pct}%${RESET}"
+# Subagents part (count marker files maintained by SubagentStart/Stop hooks)
+agents_count=0
+if [ -n "$session_id" ]; then
+  sanitized_session=$(printf '%s' "$session_id" | tr -c 'A-Za-z0-9._-' '_')
+  agents_dir="$HOME/.cache/waza-statusline/subagents/$sanitized_session"
+  if [ -d "$agents_dir" ]; then
+    agents_count=$(find "$agents_dir" -mindepth 1 -maxdepth 1 -type f 2>/dev/null | wc -l | tr -d ' ')
   fi
+fi
+if [ "$agents_count" -gt 0 ] 2>/dev/null; then
+  agents_part="${DIM}agents${RESET} ${MAGENTA}${agents_count}${RESET}"
 else
-  seven_part="${DIM}7d: --${RESET}"
+  agents_part="${DIM}agents${RESET} ${DIM}0${RESET}"
 fi
 
 # Current directory (abbreviate $HOME as ~)
@@ -190,11 +200,11 @@ if [ -n "$cwd" ]; then
 fi
 
 if [ -n "$model_part" ] && [ -n "$dir_part" ]; then
-  printf "%b | %b | %b | %b | %b\n" "$model_part" "$dir_part" "$context_part" "$five_part" "$seven_part"
+  printf "%b | %b | %b | %b | %b\n" "$model_part" "$dir_part" "$context_part" "$five_part" "$agents_part"
 elif [ -n "$model_part" ]; then
-  printf "%b | %b | %b | %b\n" "$model_part" "$context_part" "$five_part" "$seven_part"
+  printf "%b | %b | %b | %b\n" "$model_part" "$context_part" "$five_part" "$agents_part"
 elif [ -n "$dir_part" ]; then
-  printf "%b | %b | %b | %b\n" "$dir_part" "$context_part" "$five_part" "$seven_part"
+  printf "%b | %b | %b | %b\n" "$dir_part" "$context_part" "$five_part" "$agents_part"
 else
-  printf "%b | %b | %b\n" "$context_part" "$five_part" "$seven_part"
+  printf "%b | %b | %b\n" "$context_part" "$five_part" "$agents_part"
 fi

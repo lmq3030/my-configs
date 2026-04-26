@@ -142,6 +142,9 @@ eval "$(pyenv init -)"
 alias ccd="CLAUDE_CODE_AUTO_COMPACT_WINDOW=400000 claude --dangerously-skip-permissions"
 ccdr() { CLAUDE_CODE_AUTO_COMPACT_WINDOW=400000 claude --dangerously-skip-permissions --resume "$1"; }
 ccc() { local tag="${*:- }"; tag="${tag// /-}"; local dir=~/Development/temp/"$(date +%Y%m%d-%H%M%S)-${tag}"; mkdir -p "$dir" && cd "$dir" && CLAUDE_CODE_AUTO_COMPACT_WINDOW=400000 claude --dangerously-skip-permissions; }
+alias cdd="codex --dangerously-bypass-approvals-and-sandbox"
+cdcr() { if [[ -n "$1" ]]; then codex resume --dangerously-bypass-approvals-and-sandbox "$1"; else codex resume --dangerously-bypass-approvals-and-sandbox; fi }
+cdc() { local tag="${*:- }"; tag="${tag// /-}"; local dir=~/Development/temp/"$(date +%Y%m%d-%H%M%S)-${tag}"; mkdir -p "$dir" && cd "$dir" && codex --dangerously-bypass-approvals-and-sandbox; }
 
 alias ls="eza"
 alias tree="eza --tree"

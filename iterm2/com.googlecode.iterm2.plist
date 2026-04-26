@@ -345,18 +345,20 @@
 	<string>779 482 430 167 0 0 1728 1079 </string>
 	<key>NSWindow Frame ProfilesPanel</key>
 	<string>110 309 735 392 0 0 1728 1084 </string>
+	<key>NSWindow Frame SUAutomaticUpdateAlert</key>
+	<string>652 799 616 184 0 0 1920 1250 </string>
 	<key>NSWindow Frame SUStatusFrame</key>
-	<string>664 708 400 139 0 0 1728 1084 </string>
+	<string>760 833 400 139 0 0 1920 1250 </string>
 	<key>NSWindow Frame SUUpdateAlert</key>
 	<string>554 514 620 398 0 0 1728 1084 </string>
 	<key>NSWindow Frame UKCrashReporter</key>
 	<string>347 142 592 594 0 0 1728 1084 </string>
 	<key>NSWindow Frame iTerm Window 0</key>
-	<string>960 0 1035 1250 0 0 1920 1250 </string>
+	<string>0 0 1067 1250 0 0 1920 1250 </string>
 	<key>NSWindow Frame iTerm Window 1</key>
-	<string>0 0 960 1250 0 0 1920 1250 </string>
+	<string>960 0 1019 1250 0 0 1920 1250 </string>
 	<key>NSWindow Frame iTerm Window 2</key>
-	<string>0 551 650 533 0 0 1728 1084 </string>
+	<string>0 551 715 533 0 0 1920 1250 </string>
 	<key>NSWindow Frame iTerm Window 3</key>
 	<string>0 551 667 533 0 0 1920 1250 </string>
 	<key>NSWindow Frame iTerm Window 4</key>
@@ -1670,6 +1672,7 @@
 		<string>3.6.5</string>
 		<string>3.5.14</string>
 		<string>3.6.9</string>
+		<string>3.6.10</string>
 		<string>3.6.2</string>
 		<string>3.6.4</string>
 		<string>3.6.6</string>
@@ -1706,7 +1709,7 @@
 	<key>NoSyncLastSystemPythonVersionRequirement</key>
 	<string>1.17</string>
 	<key>NoSyncLaunchExperienceControllerRunCount</key>
-	<integer>99</integer>
+	<integer>101</integer>
 	<key>NoSyncLoggingStyle</key>
 	<integer>0</integer>
 	<key>NoSyncNextAnnoyanceTime</key>
@@ -2609,9 +2612,9 @@
 	<key>NoSyncSavedWindowPositions</key>
 	<dict>
 		<key>0</key>
-		<string>{960, 1250}</string>
+		<string>{0, 1250}</string>
 		<key>1</key>
-		<string>{-0, 1250}</string>
+		<string>{960, 1250}</string>
 		<key>2</key>
 		<string>{0, 1084}</string>
 		<key>3</key>
@@ -2679,7 +2682,7 @@
 	<key>SUHasLaunchedBefore</key>
 	<true/>
 	<key>SULastCheckTime</key>
-	<date>2026-04-18T23:32:09Z</date>
+	<date>2026-04-26T01:59:46Z</date>
 	<key>SUSendProfileInfo</key>
 	<false/>
 	<key>SUUpdateGroupIdentifier</key>
@@ -2697,7 +2700,7 @@
 	<key>findMode_iTerm</key>
 	<integer>0</integer>
 	<key>iTerm Version</key>
-	<string>3.6.9</string>
+	<string>3.6.10</string>
 	<key>kCPKSelectionViewPreferredModeKey</key>
 	<integer>0</integer>
 	<key>kCPKSelectionViewShowHSBTextFieldsKey</key>
