@@ -354,9 +354,9 @@
 	<key>NSWindow Frame UKCrashReporter</key>
 	<string>347 142 592 594 0 0 1728 1084 </string>
 	<key>NSWindow Frame iTerm Window 0</key>
-	<string>0 423 650 533 0 0 1728 1084 </string>
+	<string>0 423 667 533 0 0 1920 1250 </string>
 	<key>NSWindow Frame iTerm Window 1</key>
-	<string>960 0 1019 1250 0 0 1920 1250 </string>
+	<string>960 717 667 533 0 0 1920 1250 </string>
 	<key>NSWindow Frame iTerm Window 2</key>
 	<string>0 551 715 533 0 0 1920 1250 </string>
 	<key>NSWindow Frame iTerm Window 3</key>
@@ -1709,7 +1709,7 @@
 	<key>NoSyncLastSystemPythonVersionRequirement</key>
 	<string>1.17</string>
 	<key>NoSyncLaunchExperienceControllerRunCount</key>
-	<integer>113</integer>
+	<integer>119</integer>
 	<key>NoSyncLoggingStyle</key>
 	<integer>0</integer>
 	<key>NoSyncNextAnnoyanceTime</key>
@@ -2682,7 +2682,7 @@
 	<key>SUHasLaunchedBefore</key>
 	<true/>
 	<key>SULastCheckTime</key>
-	<date>2026-05-02T20:13:42Z</date>
+	<date>2026-05-05T03:09:21Z</date>
 	<key>SUSendProfileInfo</key>
 	<false/>
 	<key>SUUpdateGroupIdentifier</key>
