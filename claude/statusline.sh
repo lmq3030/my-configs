@@ -199,12 +199,27 @@ if [ -n "$cwd" ]; then
   dir_part="${DIM}Dir${RESET} ${MAGENTA}${dir_display}${RESET}"
 fi
 
-if [ -n "$model_part" ] && [ -n "$dir_part" ]; then
-  printf "%b | %b | %b | %b | %b\n" "$model_part" "$dir_part" "$context_part" "$five_part" "$agents_part"
-elif [ -n "$model_part" ]; then
-  printf "%b | %b | %b | %b\n" "$model_part" "$context_part" "$five_part" "$agents_part"
-elif [ -n "$dir_part" ]; then
-  printf "%b | %b | %b | %b\n" "$dir_part" "$context_part" "$five_part" "$agents_part"
-else
-  printf "%b | %b | %b\n" "$context_part" "$five_part" "$agents_part"
+# Git branch (computed from cwd; empty when not in a repo)
+git_part=""
+if [ -n "$cwd" ]; then
+  branch=$(git -C "$cwd" symbolic-ref --short -q HEAD 2>/dev/null)
+  [ -z "$branch" ] && branch=$(git -C "$cwd" rev-parse --short HEAD 2>/dev/null)
+  if [ -n "$branch" ]; then
+    git_part="${DIM}⎇${RESET} ${GREEN}${branch}${RESET}"
+  fi
 fi
+
+# Assemble segments in order, dropping any that are empty
+parts=()
+[ -n "$model_part" ] && parts+=("$model_part")
+[ -n "$dir_part" ]   && parts+=("$dir_part")
+[ -n "$git_part" ]   && parts+=("$git_part")
+parts+=("$context_part")
+parts+=("$five_part")
+parts+=("$agents_part")
+
+out=""
+for p in "${parts[@]}"; do
+  if [ -z "$out" ]; then out="$p"; else out="$out | $p"; fi
+done
+printf "%b\n" "$out"
