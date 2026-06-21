@@ -193,3 +193,5 @@ preexec() { print -Pn "\e]2;$1 — %~\a" }
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 export CLAUDE_CODE_ATTRIBUTION_HEADER=0
+
+. "$HOME/.local/bin/env"
