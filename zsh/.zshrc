@@ -154,6 +154,7 @@ alias meeting-prep='python3 ~/.claude/skills/meeting-prep/scripts/meeting_prep.p
 
 #Homebrew
 export PATH="/opt/homebrew/opt/postgresql@15/bin:$PATH"
+export PATH="$HOME/.pi/agent/npm/node_modules/.bin:$PATH"
 export PATH="$(brew --prefix)/opt/python@3.13/libexec/bin:$PATH"
 
 source ~/.grabrc
@@ -195,3 +196,6 @@ preexec() { print -Pn "\e]2;$1 — %~\a" }
 export CLAUDE_CODE_ATTRIBUTION_HEADER=0
 
 . "$HOME/.local/bin/env"
+
+# bun completions
+[ -s "/Users/muqi.li/.bun/_bun" ] && source "/Users/muqi.li/.bun/_bun"
